@@ -43,6 +43,7 @@ module.exports = {
     'arrow-parens': 0,
     'react/no-children-prop': 0,
     'require-jsdoc': 0,
-    'linebreak-style': ['error", "windows']
+    'linebreak-style': 0,
   },
+
 }
