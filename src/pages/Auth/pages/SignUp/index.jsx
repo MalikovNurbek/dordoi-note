@@ -59,8 +59,11 @@ export const SignUp = () => {
           />
         </label>
         <button onClick={handleSubmit(onSubmit)}>Зарегистрироваться</button>
+
         <Link to="/auth/signin">Уже есть аккаунт?</Link>
       </form>
+
+
     </div>
   )
 }

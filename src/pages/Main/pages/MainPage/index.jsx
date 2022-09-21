@@ -7,8 +7,7 @@ export const MainPage = () => {
   const goToAuth = () => navigate('/auth/signin')
   return (
     <div className={cls.root}>
-      <h1>Hello, user! You are do not authorized</h1>
-      <button onClick={goToAuth}>go to authorization</button>
+      <h1>Страница склада</h1>
     </div>
   )
 }
