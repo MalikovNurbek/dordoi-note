@@ -13,6 +13,12 @@
        &:nth-child(1) {
          margin-left: 0px;
        }
+       
+      .activeLink {
+        text-decoration: none;
+        font-size: 18px;
+        color: red !important;
+      }
 
        a {
          text-decoration: none;
@@ -20,13 +26,13 @@
          font-size: 18px;
        }
 
+      .activeLink {
+        text-decoration: none;
+        font-size: 18px;
+        color: red !important;
+      }
+
 
      }
    }
  }
-
-.activeLink {
-  text-decoration: none;
-  font-size: 18px;
-  color: red !important;
-}

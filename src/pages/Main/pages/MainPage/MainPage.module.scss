@@ -1,3 +1,23 @@
 .root {
+  width: 100%;
+  padding: 40px 0;
   text-align: center;
+  
+  .stockBlock {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    svg {
+      margin-left: 20px;
+      font-size: 40px;
+      color: #fff;
+    }
+    h4 {
+      font-size: 24px;
+    }
+    
+  }
 }

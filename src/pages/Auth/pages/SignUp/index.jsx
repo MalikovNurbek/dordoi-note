@@ -1,3 +1,4 @@
+import { Button, FormControl, FormErrorMessage, FormLabel, Input } from '@chakra-ui/react'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
@@ -23,44 +24,80 @@ export const SignUp = () => {
     <div className={cls.root}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h3>Регистрация</h3>
-        <label>
-          <span>Имя*</span>
-          <input
-            type="text"
-            placeholder="Введите ваше имя"
+        <FormControl
+          isInvalid={errors.first_name}
+          className="mb-3"
+        >
+          <FormLabel
+            className="text-dark"
+            htmlFor="first_name"
+          >Имя</FormLabel>
+          <Input
+            id="first_name"
+            placeholder="Введите имя"
             {...register('first_name', Form.Options.SimpleField)}
           />
-        </label>
+          <FormErrorMessage>
+            {errors.first_name && errors.first_name.message}
+          </FormErrorMessage>
+        </FormControl>
 
-        <label>
-          <span>Фамилия*</span>
-          <input
-            type="text"
-            placeholder="Введите вашу Фамилию"
+        <FormControl
+          isInvalid={errors.last_name}
+          className="mb-3"
+        >
+          <FormLabel
+            className="text-dark"
+            htmlFor="last_name"
+          >Фамилия</FormLabel>
+          <Input
+            id="last_name"
+            placeholder="Введите фамилию"
             {...register('last_name', Form.Options.SimpleField)}
           />
-        </label>
+          <FormErrorMessage>
+            {errors.last_name && errors.last_name.message}
+          </FormErrorMessage>
+        </FormControl>
 
-        <label>
-          <span>email*</span>
-          <input
-            type="email"
-            placeholder="Введите ваш Email"
+        <FormControl
+          isInvalid={errors.email}
+          className="mb-3"
+        >
+          <FormLabel
+            className="text-dark"
+            htmlFor="email"
+          >Email</FormLabel>
+          <Input
+            id="email"
+            placeholder="Введите почту"
             {...register('email', Form.Options.Email)}
           />
-        </label>
+          <FormErrorMessage>
+            {errors.email && errors.email.message}
+          </FormErrorMessage>
+        </FormControl>
 
-        <label>
-          <span>Пароль*</span>
-          <input
+        <FormControl
+          isInvalid={errors.password}
+        >
+          <FormLabel
+            className="text-dark"
+            htmlFor="password"
+          >Пароль</FormLabel>
+          <Input
+            id="password"
             type="password"
-            placeholder="Введите ваш пароль"
+            placeholder="Введите пароль"
             {...register('password', Form.Options.Password)}
           />
-        </label>
-        <button onClick={handleSubmit(onSubmit)}>Зарегистрироваться</button>
+          <FormErrorMessage>
+            {errors.password && errors.password.message}
+          </FormErrorMessage>
+        </FormControl>
+        <Button variant="solid" colorScheme="telegram" onClick={handleSubmit(onSubmit)}>Зарегистрироваться</Button>
 
-        <Link to="/auth/signin">Уже есть аккаунт?</Link>
+        <Button variant="link"><Link to="/auth/signin">Уже есть аккаунт?</Link></Button>
       </form>
 
 

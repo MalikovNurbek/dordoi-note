@@ -1,3 +1,4 @@
+import { Button, FormControl, FormErrorMessage, FormLabel, Input, Text } from '@chakra-ui/react'
 import axios from 'axios'
 import React from 'react'
 import { useForm } from 'react-hook-form'
@@ -23,26 +24,45 @@ export const SignIn = () => {
     <div className={cls.root}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h3>Авторизация</h3>
-        <label>
-          <span>email*</span>
-          <input
-            type="email"
-            placeholder="Введите ваш Email"
+
+        <FormControl
+          isInvalid={errors.email}
+          className="mb-3"
+        >
+          <FormLabel
+            className="text-dark"
+            htmlFor="email"
+          >Email</FormLabel>
+          <Input
+            id="email"
+            placeholder="Введите почту"
             {...register('email', Form.Options.Email)}
           />
-        </label>
+          <FormErrorMessage>
+            {errors.email && errors.email.message}
+          </FormErrorMessage>
+        </FormControl>
 
-        <label>
-          <span>Пароль*</span>
-          <input
+        <FormControl
+          isInvalid={errors.password}
+        >
+          <FormLabel
+            className="text-dark"
+            htmlFor="password"
+          >Пароль</FormLabel>
+          <Input
+            id="password"
             type="password"
-            placeholder="Введите ваш пароль"
+            placeholder="Введите пароль"
             {...register('password', Form.Options.Password)}
           />
-        </label>
+          <FormErrorMessage>
+            {errors.password && errors.password.message}
+          </FormErrorMessage>
+        </FormControl>
 
-        <button onClick={handleSubmit(onSubmit)}>Зарегистрироваться</button>
-        <Link to="/auth/signUp">Нет аккаунта?</Link>
+        <Button variant="solid" colorScheme="telegram" onClick={handleSubmit(onSubmit)}>Зарегистрироваться</Button>
+        <Button variant="link" ><Link to="/auth/signUp">Нет аккаунта?</Link></Button>
       </form>
     </div>
   )

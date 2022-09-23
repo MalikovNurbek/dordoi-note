@@ -1,0 +1,29 @@
+.card {
+  padding: 1rem;
+  aspect-ratio: 4 / 5;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+  border-radius: 24px;
+  .cardHeader {
+    width: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .cardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    span {
+      font-size: 20px;
+      margin: 12px 0;
+    }
+    .description {
+      margin-top: 0px;
+      font-size: 15px;
+      color: rgb(182, 179, 179);
+    }
+  }
+}

@@ -34,9 +34,7 @@ export const Navbar = () => {
             <li key={id}>
               <NavLink
                 to={to}
-                className={({ isActive }) => {
-                  return isActive ? cls.activeLink : null
-                }}
+                className={({ isActive }) => isActive ? cls.activeLink : null}
               >{title}</NavLink>
             </li>
           ))

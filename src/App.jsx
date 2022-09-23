@@ -6,8 +6,8 @@ import { MainLayout } from './pages/Main/MainLayout'
 const App = () => {
   return (
     <Routes>
-      <Route path="/auth/*" element={<AuthLayout />}/>
       <Route path="/*" element={<MainLayout />}/>
+      <Route path="/auth/*" element={<AuthLayout />}/>
     </Routes>
   )
 }
