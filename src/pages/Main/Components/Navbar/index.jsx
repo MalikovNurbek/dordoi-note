@@ -4,6 +4,7 @@ import cls from './Navbar.module.scss'
 import { AiFillHome } from 'react-icons/ai'
 import { MdCategory } from 'react-icons/md'
 import { BiCategory } from 'react-icons/bi'
+import { Avatar } from '@chakra-ui/react'
 export const Navbar = () => {
   const navigation = [
     {
@@ -14,14 +15,8 @@ export const Navbar = () => {
     },
     {
       id: 1,
-      to: '/category',
-      title: 'Категории',
-      icon: <MdCategory />,
-    },
-    {
-      id: 2,
       to: '/create-product',
-      title: 'Создать продукт',
+      title: '+Создать продукт',
       icon: <BiCategory />,
     },
   ]
@@ -40,6 +35,11 @@ export const Navbar = () => {
           ))
         }
       </ul>
+
+      <div className={cls.userBlock}>
+        <Avatar name="Malikov Nurbek"/>
+        <Link to="/user-profile">Профиль</Link>
+      </div>
     </nav>
   )
 }

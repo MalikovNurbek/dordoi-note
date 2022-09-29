@@ -1,0 +1,10 @@
+.root {
+  width: 100%;
+  margin: 40px 0;
+  .productsContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 30px;
+  }
+}

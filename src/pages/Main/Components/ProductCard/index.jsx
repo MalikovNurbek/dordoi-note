@@ -1,7 +1,7 @@
 import { Button } from '@chakra-ui/react'
 import React from 'react'
 import cls from './index.module.scss'
-
+import { FiCornerRightUp } from 'react-icons/fi'
 
 export const ProductCard = ({ product }) => {
   const { id, title, description, count, price, product_img } = product
@@ -11,12 +11,11 @@ export const ProductCard = ({ product }) => {
         <img src={product_img} alt="#" />
       </div>
       <div className={cls.cardBody}>
-        {title}
-        {count}
+        <span>{title}</span>
+        <span>Количество: {count}</span>
+        <span>Цена: {price} сом</span>
         <div>
-          <Button variant="outline" colorScheme="telegram">Редактировать</Button>
-          <Button variant="outline" colorScheme="red">Удалить</Button>
-
+          <Button variant="solid" colorScheme="telegram" rightIcon={<FiCornerRightUp color="#fff"/>}>Перейти</Button>
         </div>
       </div>
     </div>

@@ -4,6 +4,11 @@
   background-color: #fff;
   box-shadow: 0 0 20px rgb(0 0 0 / 10%);
   border-radius: 24px;
+  transition: all .2s ease-in-out;
+  user-select: none;
+  &:hover {
+    transform: scale(1.03);
+  }
   .cardHeader {
     width: 100%;
     img {
@@ -19,6 +24,10 @@
     span {
       font-size: 20px;
       margin: 12px 0;
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
     }
     .description {
       margin-top: 0px;
