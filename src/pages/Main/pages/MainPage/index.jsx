@@ -1,10 +1,18 @@
 import cls from './MainPage.module.scss'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Box, Button, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, SimpleGrid, useDisclosure } from '@chakra-ui/react'
+import { Box, Button, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, SimpleGrid, Text, useDisclosure } from '@chakra-ui/react'
 import { BsPlusSquareDotted } from 'react-icons/bs'
+import { useForm } from 'react-hook-form'
+
 export const MainPage = () => {
   const navigate = useNavigate()
+
+  const {
+    register,
+    formState,
+    handleSubmit,
+  } = useForm()
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -24,9 +32,22 @@ export const MainPage = () => {
     },
   ]
 
-  const onSubmit = () => {
-    alert('Добавлено!')
+  const [containers, setContainers] = React.useState([])
+
+  const onSubmit = (data) => {
     onClose()
+    setContainers(prev => [...prev, data])
+  }
+
+  const deleteStock = (containerIndex) => {
+    const isDelete = confirm('Вы точно хотите удалить?')
+
+    if (isDelete) {
+      const newContainers = containers.filter((item, index) => index !== containerIndex)
+      setContainers(newContainers)
+    }
+
+    return
   }
 
   return (
@@ -55,6 +76,42 @@ export const MainPage = () => {
           }
 
         </SimpleGrid>
+
+        <SimpleGrid
+          gridTemplateColumns="repeat(4, 1fr)"
+          gap="30px"
+          my="10"
+        >
+          {
+            containers.length ? containers.map(({ stock, address }, index) => (
+              <Box
+                key={index}
+                p="5"
+                border="1px solid gainsboro"
+                borderRadius="6px"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <div>
+                  <Text fontSize="2xl">{stock}</Text>
+                  <Text
+                    my="2"
+                    fontSize="xl"
+                  >{address}</Text>
+                  <Button
+                    variant="solid"
+                    colorScheme="telegram"
+                    onClick={() => deleteStock(index)}
+                  >
+                    Delete
+                  </Button>
+                </div>
+              </Box>
+            )) : <h2>Pusto</h2>
+          }
+        </SimpleGrid>
+
       </div>
       <Modal
         isOpen={isOpen}
@@ -69,6 +126,13 @@ export const MainPage = () => {
               <Input
                 id="stock"
                 placeholder="Введите название склада"
+                {...register('stock', {
+                  required: true,
+                  minLenght: {
+                    value: 3,
+                    message: 'Не более 3 символо',
+                  },
+                })}
               />
             </FormControl>
             <FormControl my="2">
@@ -76,6 +140,13 @@ export const MainPage = () => {
               <Input
                 id="address"
                 placeholder="Введите адрес"
+                {...register('address', {
+                  required: true,
+                  minLenght: {
+                    value: 3,
+                    message: 'Не более 3 символо',
+                  },
+                })}
               />
             </FormControl>
           </ModalBody>
@@ -86,7 +157,7 @@ export const MainPage = () => {
             <Button
               variant="solid"
               colorScheme="telegram"
-              onClick={onSubmit}
+              onClick={handleSubmit(onSubmit)}
             >Добавить</Button>
             <ModalCloseButton />
           </ModalFooter>
