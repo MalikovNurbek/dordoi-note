@@ -8,6 +8,7 @@ const App = () => {
     <Routes>
       <Route path="/*" element={<MainLayout />}/>
       <Route path="/auth/*" element={<AuthLayout />}/>
+      <Route path="*" element={<h1>not found</h1>} />
     </Routes>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import cls from './index.module.scss'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import { CategoryCard } from '../../Components/CategoryCard'
+import { CategoryCard } from '../../components/CategoryCard'
 
 export const StockPage = () => {
   const { stockid } = useParams()

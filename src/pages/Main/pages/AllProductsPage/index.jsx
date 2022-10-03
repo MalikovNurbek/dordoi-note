@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { ProductCard } from '../../Components/ProductCard'
+import { ProductCard } from '../../components/ProductCard'
 import cls from './index.module.scss'
 export const AllProductsPage = () => {
   const params = useParams()

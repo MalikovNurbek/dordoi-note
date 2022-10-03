@@ -5,6 +5,7 @@ import { AiFillHome } from 'react-icons/ai'
 import { MdCategory } from 'react-icons/md'
 import { BiCategory } from 'react-icons/bi'
 import { Avatar } from '@chakra-ui/react'
+
 export const Navbar = () => {
   const navigation = [
     {
