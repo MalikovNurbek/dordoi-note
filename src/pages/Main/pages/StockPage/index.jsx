@@ -42,7 +42,7 @@ export const StockPage = () => {
       category_name: 'Носки',
       type: 'socks',
       description: ['Носки', 'Лосины', 'Гетры'],
-      categoryImg: 'https://o.remove.bg/downloads/18b5d3e2-2195-4355-8bb8-1f4a05bcaeda/8154-removebg-preview.png',
+      categoryImg: '',
     },
   ]
 

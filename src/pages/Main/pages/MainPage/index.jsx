@@ -44,6 +44,10 @@ export const MainPage = () => {
         }
 
       </SimpleGrid>
+
+      <div style={{ height: '100vh' }}>
+
+      </div>
     </div>
   )
 }
